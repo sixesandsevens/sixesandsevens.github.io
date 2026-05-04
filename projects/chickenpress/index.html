@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChickenPress - Sixes & Sevens Studio</title>
+  <style>
+    :root {
+      --bg: #101014;
+      --panel: #181820;
+      --panel-2: #20202b;
+      --text: #f4f1e8;
+      --muted: #b9b2a6;
+      --accent: #f2b84b;
+      --accent-2: #8ad7ff;
+      --border: rgba(255,255,255,0.12);
+      --shadow: rgba(0,0,0,0.35);
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(242,184,75,0.16), transparent 34rem),
+        radial-gradient(circle at top right, rgba(138,215,255,0.10), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { width: min(100% - 2rem, var(--max)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(16,16,20,0.76);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(242,184,75,0.25), rgba(138,215,255,0.12));
+      box-shadow: 0 10px 30px var(--shadow);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    .hero {
+      padding: 3.5rem 0 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr 0.72fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    h1 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(2.0rem, 4vw, 3.25rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .lede {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 56ch;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      background: rgba(24,24,32,0.78);
+      border-radius: 18px;
+      padding: 1rem;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.22);
+    }
+
+    .meta {
+      display: grid;
+      gap: 0.55rem;
+      font-size: 0.95rem;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0.75rem;
+      align-items: start;
+    }
+
+    .label { color: var(--muted); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.65rem 0.95rem;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 750;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.24);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #16120a;
+      border-color: transparent;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.85rem;
+    }
+
+    section { padding: 1.25rem 0 2.25rem; }
+
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .shot {
+      border: 1px solid var(--border);
+      background: rgba(24,24,32,0.65);
+      border-radius: 14px;
+      overflow: hidden;
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      position: relative;
+    }
+
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .shot .ph {
+      padding: 1rem;
+      text-align: center;
+      max-width: 40ch;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="Sixes & Sevens Studio home">
+        <span class="mark">6&7</span>
+        <span>Sixes &amp; Sevens Studio</span>
+      </a>
+      <nav aria-label="Project navigation">
+        <ul>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#downloads">Downloads</a></li>
+          <li><a href="/#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>ChickenPress</h1>
+        <p class="lede">A mini-zine planner that turns photos, scans, or PDFs into an 8-page foldable layout. Reorder pages, pad to multiples of 8, preview spreads, and export a print-ready PDF.</p>
+        <div class="actions">
+          <a class="button primary" href="/downloads/chickenpress/">Downloads</a>
+          <a class="button" href="/#projects">Back to projects</a>
+        </div>
+      </div>
+
+      <aside class="panel" aria-label="ChickenPress metadata">
+        <div class="meta">
+          <div class="row">
+            <div class="label">Status</div>
+            <div>In progress</div>
+          </div>
+          <div class="row">
+            <div class="label">Platforms</div>
+            <div>Android, Linux (Flutter)</div>
+          </div>
+          <div class="row">
+            <div class="label">Focus</div>
+            <div>Fast imposition planning, practical export, minimal fuss</div>
+          </div>
+          <div class="row">
+            <div class="label">Links</div>
+            <div>Source: coming soon</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section>
+      <h2>What It Does</h2>
+      <div class="panel">
+        Import pages (photos/images/PDF), reorder them, pad to a foldable 8-page batch, preview the print-order spreads, and export an imposed PDF you can print and fold.
+      </div>
+    </section>
+
+    <section>
+      <h2>Screenshots</h2>
+      <div class="grid" aria-label="ChickenPress screenshots">
+        <div class="shot">
+          <img src="/assets/projects/chickenpress/empty-state.png" alt="ChickenPress: empty state on launch" loading="lazy" />
+        </div>
+        <div class="shot">
+          <img src="/assets/projects/chickenpress/reorder-list.png" alt="ChickenPress: pages imported and reorder list" loading="lazy" />
+        </div>
+        <div class="shot">
+          <img src="/assets/projects/chickenpress/export-settings.png" alt="ChickenPress: export settings panel" loading="lazy" />
+        </div>
+        <div class="shot">
+          <img src="/assets/projects/chickenpress/plan-sheet-1.png" alt="ChickenPress: imposed plan sheet 1" loading="lazy" />
+        </div>
+        <div class="shot">
+          <img src="/assets/projects/chickenpress/plan-sheet-2.png" alt="ChickenPress: imposed plan sheet 2" loading="lazy" />
+        </div>
+        <div class="shot">
+          <img src="/assets/projects/chickenpress/spread-preview.png" alt="ChickenPress: spread preview and export screen" loading="lazy" />
+        </div>
+        <div class="shot">
+          <img src="/assets/projects/chickenpress/printed-stack.jpg" alt="Printed zine stack made from a ChickenPress export" loading="lazy" />
+        </div>
+        <div class="shot">
+          <img src="/assets/projects/chickenpress/printed-cover.jpg" alt="Printed zine cover made from a ChickenPress export" loading="lazy" />
+        </div>
+        <div class="shot">
+          <img src="/assets/projects/chickenpress/printed-character-sheet.jpg" alt="Printed character sheet page from a ChickenPress export" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why I Made It</h2>
+      <div class="panel">
+        Because zines often start as a pile of imperfect pages, and the last mile (imposition and a printable plan) should not require a full design suite or a ritual.
+      </div>
+    </section>
+
+    <section>
+      <h2>Roadmap</h2>
+      <div class="panel">
+        Export polish, better presets, persistence for settings/projects, and a smoother scan/import flow.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a href="/">Sixes &amp; Sevens Studio</a>
+      <span> * </span>
+      <span>ChickenPress case file</span>
+    </div>
+  </footer>
+</body>
+</html>
