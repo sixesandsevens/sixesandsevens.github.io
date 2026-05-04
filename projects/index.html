@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects • Sixes & Sevens Studio</title>
+  <style>
+    :root {
+      --bg: #101014;
+      --panel: #181820;
+      --panel-2: #20202b;
+      --text: #f4f1e8;
+      --muted: #b9b2a6;
+      --accent: #f2b84b;
+      --accent-2: #8ad7ff;
+      --border: rgba(255,255,255,0.12);
+      --shadow: rgba(0,0,0,0.35);
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(242,184,75,0.16), transparent 34rem),
+        radial-gradient(circle at top right, rgba(138,215,255,0.10), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(100% - 2rem, var(--max)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(16,16,20,0.76);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(242,184,75,0.25), rgba(138,215,255,0.12));
+      box-shadow: 0 10px 30px var(--shadow);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    main { padding: 3rem 0 2rem; }
+
+    h1 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(2.0rem, 4vw, 3.25rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .lede { margin: 0; color: var(--muted); max-width: 70ch; }
+
+    .grid {
+      margin-top: 1.75rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: rgba(24,24,32,0.78);
+      border-radius: 22px;
+      padding: 1.2rem;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.22);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      min-height: 160px;
+    }
+
+    .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      font-size: 1.45rem;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pill {
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      background: rgba(255,255,255,0.04);
+      height: fit-content;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .card p { margin: 0; color: var(--muted); }
+
+    .card a:hover h2 { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 720px) {
+      nav ul { display: none; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="Sixes & Sevens Studio home">
+        <span class="mark">6&7</span>
+        <span>Sixes &amp; Sevens Studio</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="/downloads/">Downloads</a></li>
+          <li><a href="/#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Projects</h1>
+    <p class="lede">The drawer. All the builds that have a page right now, plus a home base for whatever gets added next.</p>
+
+    <div class="grid">
+      <a class="card" href="/projects/warhamster/">
+        <div class="top">
+          <div class="icon"><img src="/assets/projects/apps/warhamster.png" alt="Warhamster.app icon art" /></div>
+          <span class="pill">VTT / maps</span>
+        </div>
+        <h2>Warhamster.app</h2>
+        <p>Quick battlemaps with rooms, tokens, snapshots, and a small asset library.</p>
+      </a>
+
+      <a class="card" href="/projects/chickenpress/">
+        <div class="top">
+          <div class="icon"><img src="/assets/projects/apps/chickenpress.png" alt="ChickenPress icon art" /></div>
+          <span class="pill">Zines / PDF</span>
+        </div>
+        <h2>ChickenPress</h2>
+        <p>Mini-zine planning, page reordering, spread preview, and print-ready export.</p>
+      </a>
+
+      <a class="card" href="/projects/zomboid-mods/">
+        <div class="top">
+          <div class="icon">🧟</div>
+          <span class="pill">Mods / tools</span>
+        </div>
+        <h2>Project Zomboid Mods &amp; Tools</h2>
+        <p>Mods, experiments, and utilities for shipping and running servers with fewer weird surprises.</p>
+      </a>
+
+      <a class="card" href="/projects/malcrawl/">
+        <div class="top">
+          <div class="icon">🕳️</div>
+          <span class="pill">Ops / scanning</span>
+        </div>
+        <h2>MalCrawl</h2>
+        <p>Prototype crawler + collector: gather signals, filter the noise, output something reviewable.</p>
+      </a>
+
+      <a class="card" href="/projects/cosmical/">
+        <div class="top">
+          <div class="icon"><img src="/assets/projects/apps/cosmi-cal.png" alt="Cosmi-Cal icon art" /></div>
+          <span class="pill">Utility</span>
+        </div>
+        <h2>Cosmi-Cal</h2>
+        <p>A minimal desktop companion for notes, scratchpad, and clipboard snippets with a summon shortcut.</p>
+      </a>
+
+      <a class="card" href="/projects/guestdesk/">
+        <div class="top">
+          <div class="icon">🧾</div>
+          <span class="pill">Flask / kiosk</span>
+        </div>
+        <h2>GuestDesk</h2>
+        <p>Flask + SQLite kiosk app for service directories, schedules, announcements, and guest submissions.</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a href="/">Sixes &amp; Sevens Studio</a>
+      <span> • </span>
+      <span>Projects</span>
+    </div>
+  </footer>
+</body>
+</html>

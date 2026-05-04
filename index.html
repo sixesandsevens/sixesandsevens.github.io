@@ -227,28 +227,6 @@
       gap: 1rem;
     }
 
-    .subsection-head {
-      margin-top: 2.25rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .subsection-head h3 {
-      margin: 0;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
-    }
-
-    .subsection-head p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 560px;
-      font-size: 0.95rem;
-    }
-
     .project-card {
       min-height: 310px;
       display: flex;
@@ -376,12 +354,6 @@
       white-space: nowrap;
     }
 
-    .note {
-      margin-top: 1rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
     .about {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
@@ -451,14 +423,6 @@
         margin-top: 0.75rem;
       }
 
-      .subsection-head {
-        display: block;
-      }
-
-      .subsection-head p {
-        margin-top: 0.4rem;
-      }
-
       .download-row {
         grid-template-columns: 1fr;
       }
@@ -474,9 +438,11 @@
       </a>
       <nav aria-label="Primary navigation">
         <ul>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#downloads">Downloads</a></li>
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#make">What I Make</a></li>
+          <li><a href="#available">Available</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="projects/">All projects</a></li>
         </ul>
       </nav>
     </div>
@@ -492,8 +458,9 @@
           and whatever else climbs out of the workshop with a wrench in one hand and a questionable idea in the other.
         </p>
         <div class="actions">
-          <a class="button primary" href="#projects">View projects</a>
-          <a class="button" href="#downloads">Browse downloads</a>
+          <a class="button primary" href="#featured">Featured work</a>
+          <a class="button" href="projects/">View all projects</a>
+          <a class="button" href="downloads/">Release shelf</a>
         </div>
       </div>
 
@@ -508,7 +475,6 @@
 
 Warhamster.app      online-ish
 ChickenPress        folding reality
-Cosmi-Cal           plotting stars
 Zomboid Tools       causing fewer errors
 Downloads           coming soon
 
@@ -519,16 +485,12 @@ Make it useful anyway.</pre>
       </aside>
     </section>
 
-    <section class="wrap" id="projects">
+    <section class="wrap" id="featured">
       <div class="section-head">
-        <h2>Projects</h2>
-        <p>Active builds, prototypes, tools, and mods: small, practical things that make my hobbies and workflows easier.</p>
+        <h2>Featured work</h2>
+        <p>The current front-door: a few things that represent what I’m building right now.</p>
       </div>
 
-      <div class="subsection-head">
-        <h3>Apps</h3>
-        <p>Things with a UI: tabletop tools, zine workflows, and small desktop/web utilities.</p>
-      </div>
       <div class="grid">
         <article class="project-card featured">
           <div>
@@ -578,63 +540,13 @@ Make it useful anyway.</pre>
         <article class="project-card">
           <div>
             <div class="project-top">
-              <div class="icon">
-                <img src="assets/projects/apps/cosmi-cal.png" alt="Cosmi-Cal icon art" />
-              </div>
-              <span class="status">Concept</span>
-            </div>
-            <h3>Cosmi-Cal</h3>
-            <p>
-              A minimal COSMIC desktop companion for calendar notes, a scratchpad, and clipboard snippets,
-              with a summon shortcut that pops in and out when you need it.
-            </p>
-          </div>
-          <div class="tags">
-            <span class="tag">Calendar</span>
-            <span class="tag">Experimental</span>
-            <span class="tag">Utility</span>
-            <a class="button" href="projects/cosmical/">Details</a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div>
-            <div class="project-top">
-              <div class="icon">🧾</div>
-              <span class="status">Deployed / in use</span>
-            </div>
-            <h3>GuestDesk</h3>
-            <p>
-              A kiosk-friendly Flask + SQLite web app for publishing a service directory and schedule,
-              posting announcements, and collecting guest submissions with reference numbers.
-            </p>
-          </div>
-          <div class="tags">
-            <span class="tag">Flask</span>
-            <span class="tag">SQLite</span>
-            <span class="tag">Kiosk</span>
-            <a class="button" href="projects/guestdesk/">Details</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="subsection-head">
-        <h3>Mods (Project Zomboid)</h3>
-        <p>Small mods and prototypes for Build 42: quality-of-life, systems toys, and world additions.</p>
-        <a class="button" href="projects/zomboid-mods/">More mods</a>
-      </div>
-
-      <div class="grid">
-        <article class="project-card featured">
-          <div>
-            <div class="project-top">
               <div class="icon">🧟</div>
               <span class="status">Released / evolving</span>
             </div>
             <h3>Project Zomboid Mods &amp; Tools</h3>
             <p>
-              A collection of Project Zomboid mods and utilities: mod-list builders, server helpers, prototypes,
-              and quality-of-life tweaks for making Knox Country easier to run and more fun to break.
+              A collection of mods and utilities: prototypes, quality-of-life tweaks, server helpers,
+              and small tools for making Knox Country easier to run and more fun to break.
             </p>
           </div>
           <div class="tags">
@@ -642,285 +554,135 @@ Make it useful anyway.</pre>
             <span class="tag">Lua</span>
             <span class="tag">Modding</span>
             <span class="tag">Tools</span>
+            <a class="button" href="projects/zomboid-mods/">Details</a>
           </div>
         </article>
 
-        <article class="project-card compact">
+        <article class="project-card">
           <div>
             <div class="project-top">
-              <div class="icon">
-                <img src="assets/projects/zomboid/cigarette-vending-preview.png" alt="Cigarette Vending Machines icon art" />
-              </div>
-              <span class="status">Released</span>
-            </div>
-            <h3>Cigarette Vending Machines</h3>
-            <p>
-              A Build 42 mod that adds cigarette vending machines: new world objects, vending interaction,
-              and the supporting items/assets.
-            </p>
-          </div>
-          <div class="tags">
-            <span class="tag">B42</span>
-            <span class="tag">World objects</span>
-            <span class="tag">Lua</span>
-            <a class="button" href="projects/zomboid-mods/cigarette-vending/">Details</a>
-          </div>
-        </article>
-
-        <article class="project-card compact">
-          <div>
-            <div class="project-top">
-              <div class="icon">
-                <img src="assets/projects/zomboid/immersive-todo-preview.png" alt="Immersive Todo List icon art" />
-              </div>
-              <span class="status">Released</span>
-            </div>
-            <h3>Immersive Todo List</h3>
-            <p>
-              An in-game task notebook: open it from a notebook/journal, add and complete tasks,
-              and save them per character (pen/pencil required to edit).
-            </p>
-          </div>
-          <div class="tags">
-            <span class="tag">UI</span>
-            <span class="tag">ModData</span>
-            <span class="tag">B42</span>
-            <a class="button" href="projects/zomboid-mods/immersive-todo/">Details</a>
-          </div>
-        </article>
-
-        <article class="project-card compact">
-          <div>
-            <div class="project-top">
-              <div class="icon">
-                <img src="assets/projects/zomboid/notraitpyro-preview.png" alt="NoTraitPyro icon art" />
-              </div>
-              <span class="status">Released</span>
-            </div>
-            <h3>NoTraitPyro</h3>
-            <p>
-              Adds a context-menu option to light paper-like items on fire.
-              Uses flexible flammability rules and includes Build 42 timed-action compatibility.
-            </p>
-          </div>
-          <div class="tags">
-            <span class="tag">B42</span>
-            <span class="tag">QoL</span>
-            <span class="tag">Lua</span>
-            <a class="button" href="projects/zomboid-mods/notraitpyro/">Details</a>
-          </div>
-        </article>
-
-        <article class="project-card compact">
-          <div>
-            <div class="project-top">
-              <div class="icon">🪓</div>
-              <span class="status">In progress</span>
-            </div>
-            <h3>AutoForester</h3>
-            <p>
-              A Build 42 singleplayer automation mod for wood chores: auto-chop nearby trees, gather drops,
-              and haul to a designated wood pile.
-            </p>
-          </div>
-          <div class="tags">
-            <span class="tag">B42</span>
-            <span class="tag">Automation</span>
-            <span class="tag">Mod</span>
-            <a class="button" href="projects/zomboid-mods/autoforester/">Details</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="subsection-head">
-        <h3>Ops &amp; Security</h3>
-        <p>Monitoring, incident triage, and forensic utilities. Built to answer \"what just happened?\" quickly.</p>
-      </div>
-
-      <div class="grid">
-        <article class="project-card featured">
-          <div>
-            <div class="project-top">
-              <div class="icon">🕵️</div>
-              <span class="status">Active</span>
+              <div class="icon">🕳️</div>
+              <span class="status">Prototype</span>
             </div>
             <h3>MalCrawl</h3>
             <p>
-              A forensic-focused website crawler for collecting links/media and flagging suspicious JavaScript.
-              Includes optional Selenium rendering, deobfuscation, and signature scanning hooks.
-            </p>
-          </div>
-          <div class="tags">
-            <span class="tag">Security</span>
-            <span class="tag">Crawler</span>
-            <span class="tag">Python</span>
-            <span class="tag">Flask</span>
-            <a class="button" href="projects/malcrawl/">Details</a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div>
-            <div class="project-top">
-              <div class="icon">🛰️</div>
-              <span class="status">Active</span>
-            </div>
-            <h3>Shadow Console</h3>
-            <p>
-              Polls the UniFi Integration API, stores snapshots in SQLite, and generates small \"diff\" events
-              (uplink moves, offline devices, roam flapping) with a tiny Flask dashboard.
-            </p>
-          </div>
-          <div class="tags">
-            <span class="tag">UniFi</span>
-            <span class="tag">SQLite</span>
-            <span class="tag">Flask</span>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div>
-            <div class="project-top">
-              <div class="icon">🧯</div>
-              <span class="status">Active</span>
-            </div>
-            <h3>WatchLog-Lite</h3>
-            <p>
-              A lightweight WatchGuard log viewer (Flask): fast tailing, filters/highlighting, export,
-              and a few quick \"top talkers\" summaries.
+              A small experiment in scanning and mapping the messy edges: crawling, collecting, and turning signals into a reviewable report.
             </p>
           </div>
           <div class="tags">
             <span class="tag">Ops</span>
-            <span class="tag">Logs</span>
-            <span class="tag">Flask</span>
+            <span class="tag">Scanner</span>
+            <span class="tag">Prototype</span>
+            <a class="button" href="projects/malcrawl/">Details</a>
           </div>
         </article>
       </div>
 
-      <div class="subsection-head">
-        <h3>Small Tools</h3>
-        <p>One-off utilities and focused helpers: server setup glue, printing tools, bots, and odd hardware experiments.</p>
+      <div class="actions" style="margin-top: 1.5rem;">
+        <a class="button primary" href="projects/">View all projects</a>
+        <a class="button" href="downloads/">Browse downloads</a>
+      </div>
+    </section>
+
+    <section class="wrap" id="make">
+      <div class="section-head">
+        <h2>What I make</h2>
+        <p>A handful of buckets. The inventory lives on the projects page.</p>
       </div>
 
       <div class="grid">
-        <article class="project-card">
+        <article class="project-card compact">
           <div>
             <div class="project-top">
               <div class="icon">🧰</div>
-              <span class="status">Released</span>
+              <span class="status">Apps &amp; utilities</span>
             </div>
-            <h3>PZ Modsmith</h3>
-            <p>
-              A local helper for generating clean Project Zomboid server mod lines from console logs or Workshop IDs.
-              Scans local downloads, handles multi-mod items, and produces reviewable reports.
-            </p>
+            <h3>Apps &amp; utilities</h3>
+            <p>Small desktop/web things with a UI: tabletop helpers, zine workflows, scratch tools.</p>
           </div>
           <div class="tags">
-            <span class="tag">PZ</span>
-            <span class="tag">Python</span>
-            <span class="tag">CLI</span>
+            <a class="button" href="projects/">Browse</a>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card compact">
+          <div>
+            <div class="project-top">
+              <div class="icon">🧟</div>
+              <span class="status">Game mods</span>
+            </div>
+            <h3>Game mods</h3>
+            <p>Project Zomboid mods, prototypes, and the tooling that makes shipping them less painful.</p>
+          </div>
+          <div class="tags">
+            <a class="button" href="projects/zomboid-mods/">Browse</a>
+          </div>
+        </article>
+
+        <article class="project-card compact">
           <div>
             <div class="project-top">
               <div class="icon">📰</div>
-              <span class="status">Released</span>
+              <span class="status">Print tools</span>
             </div>
-            <h3>Zine Imposer</h3>
-            <p>
-              A CLI (plus optional preview UI) that turns PDFs or images into print-ready booklet/zine imposition.
-              Pads page counts and exports imposed spreads for folding and stapling.
-            </p>
+            <h3>Print tools</h3>
+            <p>Zines, imposition, PDF workflows, and small utilities that turn “I should print this” into a file.</p>
           </div>
           <div class="tags">
-            <span class="tag">PDF</span>
-            <span class="tag">CLI</span>
-            <span class="tag">Printing</span>
+            <a class="button" href="projects/chickenpress/">Start here</a>
           </div>
         </article>
 
         <article class="project-card compact">
           <div>
             <div class="project-top">
-              <div class="icon">📟</div>
-              <span class="status">Running</span>
+              <div class="icon">🛰️</div>
+              <span class="status">Ops / security</span>
             </div>
-            <h3>signal-bot</h3>
-            <p>
-              A small Signal bot built around `signal-cli` JSON-RPC: subscribers, keyword replies,
-              rate limiting, and a PIN-gated admin mode for updating help responses.
-            </p>
+            <h3>Ops / security</h3>
+            <p>Automation, scanners, helpers, and “make it observable” experiments.</p>
           </div>
           <div class="tags">
-            <span class="tag">Messaging</span>
-            <span class="tag">Python</span>
-            <span class="tag">signal-cli</span>
-          </div>
-        </article>
-
-        <article class="project-card compact">
-          <div>
-            <div class="project-top">
-              <div class="icon">🟨</div>
-              <span class="status">Active</span>
-            </div>
-            <h3>Chonky Yellow Display Command</h3>
-            <p>
-              A barebones board support package for the Sunton ESP32-3248S035(C):
-              LVGL display + touch, plus helpers for the onboard peripherals.
-            </p>
-          </div>
-          <div class="tags">
-            <span class="tag">ESP32</span>
-            <span class="tag">LVGL</span>
-            <span class="tag">PlatformIO</span>
+            <a class="button" href="projects/malcrawl/">Start here</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="wrap" id="downloads">
+    <section class="wrap" id="available">
       <div class="section-head">
-        <h2>Downloads</h2>
-        <p>Eventually this becomes the release shelf: installers, APKs, zips, source links, checksums, and notes.</p>
+        <h2>Available now</h2>
+        <p>What you can click today. The rest is on the bench.</p>
       </div>
 
       <div class="downloads">
         <div class="download-row">
           <div>
-            <strong>ChickenPress</strong>
-            <span>Printable zine layout and digitizer builds.</span>
+            <strong><a href="projects/warhamster/">Warhamster.app</a></strong>
+            <span>Project page, screenshots, and current status.</span>
+          </div>
+          <span class="pill">Live page</span>
+          <a class="button" href="projects/warhamster/">Details</a>
+        </div>
+
+        <div class="download-row">
+          <div>
+            <strong><a href="projects/zomboid-mods/">Project Zomboid mods</a></strong>
+            <span>Mods + tools hub (Workshop links live there).</span>
+          </div>
+          <span class="pill">Released</span>
+          <a class="button" href="projects/zomboid-mods/">Details</a>
+        </div>
+
+        <div class="download-row">
+          <div>
+            <strong><a href="downloads/">Downloads</a></strong>
+            <span>The release shelf: builds, checksums, install notes (coming online).</span>
           </div>
           <span class="pill">Coming soon</span>
-          <a class="button" href="#">Details</a>
-        </div>
-
-        <div class="download-row">
-          <div>
-            <strong>Zomboid Mod Tools</strong>
-            <span>Server list helpers, scan tools, presets, and modding utilities.</span>
-          </div>
-          <span class="pill">Planned</span>
-          <a class="button" href="#">Details</a>
-        </div>
-
-        <div class="download-row">
-          <div>
-            <strong>Zine-Imposer CLI</strong>
-            <span>Linux package builds and command-line zine formatting tools.</span>
-          </div>
-          <span class="pill">Planned</span>
-          <a class="button" href="#">Details</a>
+          <a class="button" href="downloads/">Open</a>
         </div>
       </div>
-
-      <p class="note">
-        Download safety idea: each release page should include version number, date, platform, changelog, SHA256 checksum,
-        and a plain-English install note. Future-you will thank present-you. Possibly with snacks.
-      </p>
     </section>
 
     <section class="wrap about" id="about">
