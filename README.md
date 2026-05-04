@@ -1,1 +1,1 @@
-# sixesandsevens..github.io
+# sixesandsevens.github.io
