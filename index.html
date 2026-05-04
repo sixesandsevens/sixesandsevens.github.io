@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sixes & Sevens Studio</title>
+  <style>
+    :root {
+      --bg: #101014;
+      --panel: #181820;
+      --panel-2: #20202b;
+      --text: #f4f1e8;
+      --muted: #b9b2a6;
+      --accent: #f2b84b;
+      --accent-2: #8ad7ff;
+      --danger: #ff6b6b;
+      --border: rgba(255,255,255,0.12);
+      --shadow: rgba(0,0,0,0.35);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(242,184,75,0.18), transparent 34rem),
+        radial-gradient(circle at top right, rgba(138,215,255,0.12), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(16,16,20,0.76);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(242,184,75,0.25), rgba(138,215,255,0.12));
+      box-shadow: 0 10px 30px var(--shadow);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 7rem 0 4.5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 6rem);
+      line-height: 0.95;
+      margin: 0 0 1.25rem;
+      letter-spacing: -0.06em;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.16rem;
+      margin: 0 0 2rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.85rem 1.2rem;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 750;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.24);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #16120a;
+      border-color: transparent;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border-radius: 28px;
+      padding: 1.25rem;
+      box-shadow: 0 24px 70px var(--shadow);
+    }
+
+    .terminal {
+      border-radius: 22px;
+      overflow: hidden;
+      background: #08080b;
+      border: 1px solid var(--border);
+    }
+
+    .terminal-bar {
+      display: flex;
+      gap: 0.45rem;
+      padding: 0.9rem;
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.9;
+    }
+
+    .terminal pre {
+      margin: 0;
+      padding: 1.2rem;
+      color: #d7ffd9;
+      font-size: 0.92rem;
+      white-space: pre-wrap;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .project-card {
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+      background: rgba(24,24,32,0.82);
+      border-radius: 26px;
+      padding: 1.2rem;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.22);
+    }
+
+    .project-card.featured {
+      grid-column: span 2;
+      background:
+        linear-gradient(135deg, rgba(242,184,75,0.18), rgba(138,215,255,0.08)),
+        rgba(24,24,32,0.9);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      font-size: 1.65rem;
+    }
+
+    .status {
+      font-size: 0.78rem;
+      color: var(--accent-2);
+      border: 1px solid rgba(138,215,255,0.32);
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
+      background: rgba(138,215,255,0.08);
+      white-space: nowrap;
+    }
+
+    .project-card h3 {
+      font-size: 1.45rem;
+      line-height: 1.1;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1.25rem;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.55rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .downloads {
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: rgba(24,24,32,0.72);
+      padding: 1.25rem;
+      box-shadow: 0 20px 52px rgba(0,0,0,0.2);
+    }
+
+    .download-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 20px;
+      border: 1px solid transparent;
+    }
+
+    .download-row + .download-row {
+      border-top: 1px solid var(--border);
+      border-radius: 0;
+    }
+
+    .download-row strong {
+      display: block;
+    }
+
+    .download-row span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .pill {
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    .note {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .about-box {
+      border: 1px solid var(--border);
+      background: rgba(24,24,32,0.72);
+      border-radius: 28px;
+      padding: 1.4rem;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-card.featured {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 4.5rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 0.75rem;
+      }
+
+      .download-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Sixes & Sevens Studio home">
+        <span class="mark">6&7</span>
+        <span>Sixes &amp; Sevens Studio</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#downloads">Downloads</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">Small tools. Strange apps. Useful nonsense.</div>
+        <h1>Software with dirt under its fingernails.</h1>
+        <p>
+          A home for tabletop utilities, zine tools, indie experiments, Project Zomboid mods,
+          and whatever else climbs out of the workshop with a wrench in one hand and a questionable idea in the other.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#projects">View projects</a>
+          <a class="button" href="#downloads">Browse downloads</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Studio terminal preview">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <pre>$ studio status
+
+Warhamster.app      online-ish
+ChickenPress        folding reality
+Cosmi-Cal           plotting stars
+Zomboid Tools       causing fewer errors
+Downloads           coming soon
+
+$ motto
+Build the thing. Break the thing.
+Make it useful anyway.</pre>
+        </div>
+      </aside>
+    </section>
+
+    <section class="wrap" id="projects">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>Living projects, experiments, tools, and mods. Some polished. Some gremlin-powered. All mine.</p>
+      </div>
+
+      <div class="grid">
+        <article class="project-card featured">
+          <div>
+            <div class="project-top">
+              <div class="icon">🐹</div>
+              <span class="status">Active</span>
+            </div>
+            <h3>Warhamster.app</h3>
+            <p>
+              A browser-based tabletop battle map and VTT-style tool for sketching rooms, moving tokens,
+              managing assets, and making remote tabletop nights less painful.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">VTT</span>
+            <span class="tag">Maps</span>
+            <span class="tag">Tabletop</span>
+            <span class="tag">Web app</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="project-top">
+              <div class="icon">🐔</div>
+              <span class="status">In progress</span>
+            </div>
+            <h3>ChickenPress</h3>
+            <p>
+              A zine imposition and digitizing tool for turning messy creative pages into printable,
+              foldable, shareable little artifacts.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">Zines</span>
+            <span class="tag">Flutter</span>
+            <span class="tag">PDF</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="project-top">
+              <div class="icon">🌙</div>
+              <span class="status">Concept</span>
+            </div>
+            <h3>Cosmi-Cal</h3>
+            <p>
+              A weird little calendar concept for tracking time, moods, projects, rituals,
+              or whatever cosmic bureaucracy requires this week.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">Calendar</span>
+            <span class="tag">Experimental</span>
+            <span class="tag">Utility</span>
+          </div>
+        </article>
+
+        <article class="project-card featured">
+          <div>
+            <div class="project-top">
+              <div class="icon">🧟</div>
+              <span class="status">Released / evolving</span>
+            </div>
+            <h3>Project Zomboid Mods &amp; Tools</h3>
+            <p>
+              Mods, helper scripts, list-cleanup tools, server utilities, and other survival-adjacent software
+              for making Knox Country slightly more ridiculous and slightly less annoying to manage.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">Project Zomboid</span>
+            <span class="tag">Lua</span>
+            <span class="tag">Modding</span>
+            <span class="tag">Tools</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="project-top">
+              <div class="icon">🛠️</div>
+              <span class="status">Archive soon</span>
+            </div>
+            <h3>Small Tools</h3>
+            <p>
+              One-off scripts, repair utilities, packaging experiments, kiosk ideas, log analyzers,
+              and other sharp little things that deserve a shelf.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">CLI</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Utilities</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" id="downloads">
+      <div class="section-head">
+        <h2>Downloads</h2>
+        <p>Eventually this becomes the release shelf: installers, APKs, zips, source links, checksums, and notes.</p>
+      </div>
+
+      <div class="downloads">
+        <div class="download-row">
+          <div>
+            <strong>ChickenPress</strong>
+            <span>Printable zine layout and digitizer builds.</span>
+          </div>
+          <span class="pill">Coming soon</span>
+          <a class="button" href="#">Details</a>
+        </div>
+
+        <div class="download-row">
+          <div>
+            <strong>Zomboid Mod Tools</strong>
+            <span>Server list helpers, scan tools, presets, and modding utilities.</span>
+          </div>
+          <span class="pill">Planned</span>
+          <a class="button" href="#">Details</a>
+        </div>
+
+        <div class="download-row">
+          <div>
+            <strong>Zine-Imposer CLI</strong>
+            <span>Linux package builds and command-line zine formatting tools.</span>
+          </div>
+          <span class="pill">Planned</span>
+          <a class="button" href="#">Details</a>
+        </div>
+      </div>
+
+      <p class="note">
+        Download safety idea: each release page should include version number, date, platform, changelog, SHA256 checksum,
+        and a plain-English install note. Future-you will thank present-you. Possibly with snacks.
+      </p>
+    </section>
+
+    <section class="wrap about" id="about">
+      <div class="about-box">
+        <div class="eyebrow">About the studio</div>
+        <h2>Built from experiments, repairs, and stubborn curiosity.</h2>
+      </div>
+      <div class="about-box">
+        <p>
+          Sixes &amp; Sevens Studio is a place for practical software, oddball creative tools, game mods,
+          tabletop utilities, and small systems built with a bias toward ownership, repairability, and not locking people into nonsense.
+        </p>
+        <p>
+          The vibe: useful first, pretty second, corporate polish never. A little haunted, a little handmade,
+          and ideally something you can actually run, print, mod, host, or take apart.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Sixes &amp; Sevens Studio</span>
+      <span>Built for projects that refuse to stay in their boxes.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
