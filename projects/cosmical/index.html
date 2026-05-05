@@ -10,6 +10,38 @@
           async src="/assets/sixesandsevens-analytics.js"></script>
   <style>
     .panel { margin-top: 1.5rem; }
+
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .shot {
+      border: 1px solid var(--border);
+      background: rgba(24, 24, 32, 0.65);
+      border-radius: 14px;
+      overflow: hidden;
+      min-height: 240px;
+    }
+
+    .shot img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -39,7 +71,15 @@
     </div>
 
     <div class="panel">
-      <strong>Screenshots:</strong> Coming soon!
+      <h2>Screenshots</h2>
+      <div class="grid">
+        <div class="shot">
+          <img src="/assets/projects/cosmical/dashboard.webp" alt="Cosmi-Cal dashboard with calendar, daily note, and recent clipboard snippets" loading="lazy" />
+        </div>
+        <div class="shot">
+          <img src="/assets/projects/cosmical/scratchpad.webp" alt="Cosmi-Cal scratchpad window over a COSMIC desktop" loading="lazy" />
+        </div>
+      </div>
     </div>
   </main>
 
