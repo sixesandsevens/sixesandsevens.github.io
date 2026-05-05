@@ -136,6 +136,20 @@
     <div class="panel">
       <strong>Core features:</strong> subscription list, simple keyword replies, rate limiting, and admin-only commands.
     </div>
+
+    <div class="panel">
+      <strong>Technical overview:</strong>
+      <div style="margin-top:0.5rem; color: var(--muted);">
+        <code>signal-bot</code> wraps <code>signal-cli</code>’s JSON-RPC interface as a small message-processing service: incoming messages are parsed into commands/events, then routed through handlers with rate limits and basic auth gates.
+        The design goal is “boring reliability” on a small host.
+        <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+          <li><strong>Transport:</strong> JSON-RPC calls to <code>signal-cli</code> for send/receive, group metadata, and attachment handling.</li>
+          <li><strong>Routing:</strong> command parsing + keyword matching with explicit handler ordering to avoid ambiguous triggers.</li>
+          <li><strong>Guardrails:</strong> per-sender cooldowns, opt-in subscriptions, and a PIN-gated admin mode for editing help/response text.</li>
+          <li><strong>Ops:</strong> structured logging and safe defaults so failures degrade gracefully instead of spamming chats.</li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <footer>

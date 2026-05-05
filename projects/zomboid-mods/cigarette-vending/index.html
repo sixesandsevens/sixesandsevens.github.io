@@ -222,6 +222,20 @@
             </div>
           </div>
         </div>
+
+        <div class="panel">
+          <strong>Technical overview</strong>
+          <div style="margin-top:0.5rem; color: var(--muted);">
+            This mod is built as a Build 42 world-object addition: it defines new sprites/items, adds vending machines to world distribution, and hooks interaction through Lua so the player can “use” the object with multiplayer-safe timing.
+            The emphasis is on predictable placement and behavior (no weird desync) while keeping the mod’s footprint small.
+            <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+              <li><strong>World integration:</strong> map objects + distribution entries so vending machines appear in appropriate locations.</li>
+              <li><strong>Interaction:</strong> context menu + timed actions for vending, with guardrails around inventory space and failure cases.</li>
+              <li><strong>Assets:</strong> item/world sprites and supporting definitions packaged with consistent naming and mod ID separation.</li>
+              <li><strong>Balance knobs:</strong> tunable spawn rates and vending contents so servers can dial it in.</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <aside class="panel">

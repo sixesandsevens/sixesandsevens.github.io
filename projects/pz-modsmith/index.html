@@ -131,6 +131,20 @@
     <div class="panel">
       <strong>Use case:</strong> turn messy mod lists into something you can paste into a server config without summoning new errors.
     </div>
+
+    <div class="panel">
+      <strong>Technical overview:</strong>
+      <div style="margin-top:0.5rem; color: var(--muted);">
+        PZ Modsmith is a local, CLI-first parser + resolver: it ingests messy inputs (server console logs, Workshop IDs, partial names), resolves them into a normalized mod set, and emits output you can verify before you paste it into a config.
+        The workflow is intentionally “review, then apply” to reduce downtime on multiplayer servers.
+        <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+          <li><strong>Input parsing:</strong> extract Workshop IDs and mod IDs from logs and freeform text, handling duplicates and mixed formats.</li>
+          <li><strong>Local resolution:</strong> scan downloaded Workshop content to map IDs → actual mod folder IDs (including multi-mod workshop items).</li>
+          <li><strong>Output generation:</strong> produce server-ready lines and a human-readable report listing what was found, what was missing, and what looks suspicious.</li>
+          <li><strong>Safety:</strong> keeps destructive actions out of band; the tool emits recommendations rather than silently modifying game installs.</li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <footer>

@@ -163,6 +163,20 @@
         </div>
       </div>
     </div>
+
+    <div class="panel">
+      <h2 style="margin:0 0 0.75rem; font-size:1.3rem; letter-spacing:-0.02em;">Technical overview</h2>
+      <p style="margin:0 0 0.75rem; color: var(--muted); max-width: 80ch;">
+        Warhamster is a browser-first realtime app: each “room” is a shared document (board state + token state + asset references) with a small event protocol for syncing edits.
+        The goal is low-latency collaboration without forcing heavyweight accounts or complex setup.
+      </p>
+      <ul style="margin:0; padding-left: 1.2rem; color: var(--muted);">
+        <li><strong>Realtime sync:</strong> a WebSocket channel per room broadcasts discrete board events (draw, move, add/remove, change properties) so clients apply updates incrementally.</li>
+        <li><strong>State model:</strong> room state is kept normalized (layers/objects/tokens/assets) so snapshots and undo/redo can be implemented as small patches.</li>
+        <li><strong>Assets:</strong> imported images are treated as references with metadata (size/transform) and reused across boards via an asset library.</li>
+        <li><strong>Snapshots:</strong> “save points” are stored as serialized room state for fast rehydration and sharing specific moments in play.</li>
+      </ul>
+    </div>
   </main>
 
   <footer>

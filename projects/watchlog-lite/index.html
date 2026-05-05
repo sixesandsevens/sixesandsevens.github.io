@@ -131,6 +131,20 @@
     <div class="panel">
       <strong>Focus:</strong> speed and readability — make the log stream feel like a tool, not a punishment.
     </div>
+
+    <div class="panel">
+      <strong>Technical overview:</strong>
+      <div style="margin-top:0.5rem; color: var(--muted);">
+        WatchLog-Lite is a lightweight Flask app that tails one or more log files, parses lines into structured records, and provides a fast in-browser filter/view layer.
+        It’s built for triage speed: get to the relevant handful of entries, export them, and move on.
+        <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+          <li><strong>Tailing:</strong> incremental follow that avoids reprocessing whole files and keeps UI updates cheap.</li>
+          <li><strong>Parsing:</strong> normalize timestamps, src/dst, service, and message fields so filters can be consistent.</li>
+          <li><strong>Filtering/highlighting:</strong> query + pattern rules plus color tags for “known bad” strings.</li>
+          <li><strong>Summaries:</strong> small aggregation queries (top talkers, common denies, bursty sources) for quick situational awareness.</li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <footer>

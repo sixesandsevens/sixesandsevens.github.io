@@ -131,6 +131,20 @@
     <div class="panel">
       <strong>What it covers:</strong> display + touch bring-up, input plumbing, and small “make it usable” helpers.
     </div>
+
+    <div class="panel">
+      <strong>Technical overview:</strong>
+      <div style="margin-top:0.5rem; color: var(--muted);">
+        This project is a “board support + reference implementation” bundle for the Sunton ESP32-3248S035(C): it wires up the display and touch stack, then provides small, testable building blocks you can reuse in larger firmware.
+        The emphasis is on repeatable init sequences and sane defaults (pins, backlight, rotation, calibration), not a monolithic app.
+        <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+          <li><strong>Display bring-up:</strong> LVGL driver init, flush callbacks, and a baseline UI loop that doesn’t tear or stall.</li>
+          <li><strong>Touch input:</strong> calibration + coordinate transforms so LVGL input matches screen rotation and scaling.</li>
+          <li><strong>Peripherals:</strong> helper wrappers for the board’s common add-ons so demos don’t devolve into pin math.</li>
+          <li><strong>PlatformIO layout:</strong> a reproducible project skeleton for builds, flashing, and iteration.</li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <footer>

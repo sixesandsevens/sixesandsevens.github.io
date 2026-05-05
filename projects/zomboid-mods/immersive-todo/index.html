@@ -211,6 +211,20 @@
             </div>
           </div>
         </div>
+
+        <div class="panel">
+          <strong>Technical overview</strong>
+          <div style="margin-top:0.5rem; color: var(--muted);">
+            Immersive Todo List is a UI + persistence mod: it adds an in-game notebook UI, stores tasks per character, and integrates with item interactions (journal/notebook) so it feels like part of the game rather than a debug overlay.
+            The design goal is “survive real saves”: no fragile global state and no assumptions about singleplayer-only flow.
+            <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+              <li><strong>Data storage:</strong> task lists saved per character via ModData so they travel with the save.</li>
+              <li><strong>UI:</strong> an in-game panel with add/complete/notes flows optimized for quick use.</li>
+              <li><strong>Integration:</strong> context-menu hooks to open the list from appropriate items.</li>
+              <li><strong>Safety:</strong> defensive serialization/versioning so upgrades don’t corrupt existing task lists.</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <aside class="panel">

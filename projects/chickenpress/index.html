@@ -305,6 +305,22 @@
     </section>
 
     <section>
+      <h2>Technical overview</h2>
+      <div class="panel">
+        <p style="margin:0 0 0.75rem; color: var(--muted); max-width: 80ch;">
+          ChickenPress is a Flutter app built around a deterministic “imposition planner”: it takes an arbitrary pile of pages (photos/scans/PDF pages), normalizes them into a consistent page model,
+          then generates foldable 8-page signatures and exports a print-ready PDF.
+        </p>
+        <ul style="margin:0; padding-left: 1.2rem; color: var(--muted);">
+          <li><strong>Import pipeline:</strong> decode images, rasterize PDF pages when needed, and keep a lightweight preview cache so the reorder UI stays fast.</li>
+          <li><strong>Imposition logic:</strong> compute page ordering and sheet-side placement for each 8-page batch; pad with blanks to reach valid fold counts.</li>
+          <li><strong>Preview:</strong> render “spread” previews that match export placement (rotation, margins) so the plan matches the print.</li>
+          <li><strong>Export:</strong> write an imposed PDF with predictable sizing so viewers and printers don’t “helpfully” rescale the output.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
       <h2>Why I Made It</h2>
       <div class="panel">
         Because zines often start as a pile of imperfect pages, and the last mile (imposition and a printable plan) should not require a full design suite or a ritual.

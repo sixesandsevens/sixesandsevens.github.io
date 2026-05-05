@@ -131,6 +131,20 @@
     <div class="panel">
       <strong>Downloads:</strong> planned for the release shelf.
     </div>
+
+    <div class="panel">
+      <strong>Technical overview:</strong>
+      <div style="margin-top:0.5rem; color: var(--muted);">
+        Zine Imposer is an imposition engine wrapped in a CLI: it ingests PDFs or image sets, computes booklet signatures, and emits a new PDF where each output sheet contains the correct page pairings for folding.
+        The optional preview UI is a thin layer over the same planner so what you see is what you export.
+        <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+          <li><strong>Input normalization:</strong> coerce mixed sources into a consistent page model (size, rotation, crop).</li>
+          <li><strong>Signature planning:</strong> pad to valid booklet sizes and compute front/back page ordering per sheet.</li>
+          <li><strong>Output generation:</strong> write a print-ready PDF with stable dimensions (no surprise scaling) and optional spacing.</li>
+          <li><strong>Repeatability:</strong> deterministic planning so reruns produce the same layout for the same inputs.</li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <footer>

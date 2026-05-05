@@ -156,6 +156,20 @@
         </div>
       </aside>
     </div>
+
+    <div class="panel">
+      <strong>Technical overview:</strong>
+      <div style="margin-top:0.5rem; color: var(--muted);">
+        AutoForester is an automation loop built on top of the player’s normal actions: it identifies nearby trees, queues safe chop actions, watches for drops, and then moves items to a configurable pile location.
+        The intent is “hands-off but not magic”: it should still obey stamina, tool condition, and pathing constraints.
+        <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+          <li><strong>Target selection:</strong> proximity + reachability checks to avoid trying to chop through walls/props.</li>
+          <li><strong>Action queue:</strong> drive timed actions (chop, pickup, move) instead of teleporting items.</li>
+          <li><strong>Haul logic:</strong> deposit to a chosen tile/container and handle partial stacks safely.</li>
+          <li><strong>Singleplayer scope:</strong> explicitly avoids multiplayer authority problems while the behavior is still evolving.</li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <footer>

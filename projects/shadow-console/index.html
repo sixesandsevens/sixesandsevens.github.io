@@ -131,6 +131,20 @@
     <div class="panel">
       <strong>What it’s for:</strong> turning “something changed” into a short, reviewable event list instead of a vibe.
     </div>
+
+    <div class="panel">
+      <strong>Technical overview:</strong>
+      <div style="margin-top:0.5rem; color: var(--muted);">
+        Shadow Console runs a scheduled poller against the UniFi Integration API, normalizes device/site state into stable tables, and computes diffs between snapshots to emit “small events”.
+        The dashboard is intentionally minimal: it’s optimized for answering “what changed, when, and does it matter?”.
+        <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+          <li><strong>Snapshotting:</strong> store periodic device + uplink + status fields in SQLite with timestamps for cheap historical comparisons.</li>
+          <li><strong>Diff events:</strong> detect deltas like uplink port changes, offline/online transitions, and excessive roam flapping.</li>
+          <li><strong>Filtering:</strong> collapse noisy repeats into a single event stream you can scan quickly.</li>
+          <li><strong>Dashboard:</strong> a simple Flask UI for browsing recent events and drilling into the underlying snapshot data.</li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <footer>

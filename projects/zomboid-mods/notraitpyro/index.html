@@ -211,6 +211,19 @@
             </div>
           </div>
         </div>
+
+        <div class="panel">
+          <strong>Technical overview</strong>
+          <div style="margin-top:0.5rem; color: var(--muted);">
+            NoTraitPyro extends the item context menu with a rules-driven “light it on fire” action. It’s implemented as a small Lua hook layer that checks item eligibility, validates ignition conditions, and then runs a timed action to keep behavior consistent with Build 42 safety patterns.
+            <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+              <li><strong>Eligibility rules:</strong> whitelist/blacklist matching for paper-like items (and exclusions) so servers can tune behavior.</li>
+              <li><strong>Action flow:</strong> timed action wrapper to prevent instant exploits and reduce multiplayer weirdness.</li>
+              <li><strong>Feedback:</strong> clear failure messaging when conditions aren’t met.</li>
+              <li><strong>Compatibility:</strong> additive hooks (avoid overriding base functions) so it plays nicer with other mods.</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <aside class="panel">

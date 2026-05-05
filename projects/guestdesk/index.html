@@ -130,6 +130,20 @@
     <div class="panel">
       <strong>Screenshots:</strong> coming soon (home screen + admin landing are the money shots).
     </div>
+
+    <div class="panel">
+      <strong>Technical overview:</strong>
+      <div style="margin-top:0.5rem; color: var(--muted);">
+        GuestDesk is a small Flask app designed for “public screen + private admin” deployments: guest-facing pages are kiosk-friendly, while admin workflows are optimized for rapid edits during live events.
+        Data lives in SQLite so deployments stay simple and portable.
+        <ul style="margin:0.6rem 0 0; padding-left:1.2rem;">
+          <li><strong>Public pages:</strong> service directory, schedule, announcements, and “what’s happening now” views designed for large displays.</li>
+          <li><strong>Submission flow:</strong> a minimal form that issues reference numbers so staff can triage and follow up without exposing personal info on-screen.</li>
+          <li><strong>Admin mode:</strong> protected routes for editing entries, scheduling, moderating submissions, and exporting quick reports.</li>
+          <li><strong>Deployment:</strong> runs behind a reverse proxy (or locally on a small box) with a single DB file for backup/restore.</li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <footer>
