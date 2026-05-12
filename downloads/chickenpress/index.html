@@ -56,6 +56,11 @@
     }
     .download-card .meta { color: var(--muted); font-size: 0.95rem; margin-top: 0.45rem; }
     .download-card .button { width: 100%; }
+    .portable-link {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .portable-link code { font-size: 0.92em; }
     @media (max-width: 640px) {
       .row { grid-template-columns: 1fr; }
     }
@@ -120,21 +125,15 @@
       <div class="download-grid" role="list">
         <div class="download-card" id="windows" role="listitem" aria-label="Windows downloads">
           <h3 style="margin:0;">Windows</h3>
-          <div class="meta">Installer recommended for most Windows users.</div>
+          <div class="meta">Installer (recommended)</div>
           <div style="margin-top:0.65rem; display:grid; gap:0.6rem;">
             <a class="button primary" href="https://github.com/sixesandsevens/chicken_press/releases/download/v0.1.0-desktop-alpha/chicken-press-windows-x64-setup.exe">
               <code>chicken-press-windows-x64-setup.exe</code>
             </a>
-            <a class="button" href="https://github.com/sixesandsevens/chicken_press/releases/download/v0.1.0-desktop-alpha/chicken-press-windows-x64.zip">
+            <a class="portable-link" href="https://github.com/sixesandsevens/chicken_press/releases/download/v0.1.0-desktop-alpha/chicken-press-windows-x64.zip">
               <code>chicken-press-windows-x64.zip</code> (portable)
             </a>
           </div>
-          <pre><code>SHA256 (setup.exe):
-c0884d3b85c24f8b1841e3f6b2ade2e55bcfcc58e7416dbb2bfa54e953437255
-
-SHA256 (portable .zip):
-9a5e737a97d01e5dd9667c68e78fc699f97c2080b4099a890687069ec199f4d6</code></pre>
-          <p class="note" style="margin-bottom:0;">Windows users may see a SmartScreen warning because the installer is not code-signed yet.</p>
         </div>
 
         <div class="download-card" id="linux" role="listitem" aria-label="Linux downloads">
@@ -156,23 +155,6 @@ SHA256 (portable .zip):
       <p class="lede" style="margin:0; max-width: 80ch;">
         This is an early alpha build of Chicken Press. It can format images/PDFs into printable zine layouts and export print-ready files.
       </p>
-      <p class="note">Windows users may see a SmartScreen warning because the installer is not code-signed yet.</p>
-    </div>
-
-    <div class="panel" aria-label="Windows run instructions">
-      <h2 style="margin:0 0 0.5rem;">Windows:</h2>
-      <p class="lede" style="margin:0; max-width: 80ch;">
-        Use the installer (recommended) or the portable zip.
-      </p>
-      <pre><code># Installer (recommended)
-1) Download chicken-press-windows-x64-setup.exe
-2) Run it and follow the prompts
-3) Launch Chicken Press from the Start Menu
-
-# Portable
-1) Download chicken-press-windows-x64.zip
-2) Extract it
-3) Run the Chicken Press .exe inside the extracted folder</code></pre>
     </div>
 
     <div class="panel" aria-label="Linux run instructions">
