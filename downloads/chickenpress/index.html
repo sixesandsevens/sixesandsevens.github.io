@@ -20,6 +20,18 @@
     .row { display: grid; grid-template-columns: 140px 1fr; gap: 0.75rem; }
     .label { color: var(--muted); }
     .note { color: var(--muted); font-size: 0.95rem; margin-top: 0.75rem; }
+    pre {
+      margin: 0.75rem 0 0;
+      padding: 0.85rem 0.95rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      overflow: auto;
+      color: var(--text);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
     @media (max-width: 640px) {
       .row { grid-template-columns: 1fr; }
     }
@@ -43,17 +55,24 @@
 
   <main class="wrap">
     <h1>ChickenPress Downloads</h1>
-    <p class="lede">Status and planned builds. Actual release links will land here with checksums and install notes.</p>
+    <p class="lede">Release shelf for ChickenPress builds. Linux is live first; Windows is next.</p>
 
     <div class="panel">
       <div class="kv">
         <div class="row">
           <div class="label">Status</div>
-          <div>Test builds coming soon</div>
+          <div>Linux x64 alpha available</div>
+        </div>
+        <div class="row">
+          <div class="label">Latest</div>
+          <div>
+            <div><strong>v0.1.0 (Linux x64 alpha)</strong></div>
+            <div><a href="https://github.com/sixesandsevens/chicken_press/releases/download/v0.1.0-linux-alpha/chicken-press-linux-x64.tar.gz">Download: chicken-press-linux-x64.tar.gz</a></div>
+          </div>
         </div>
         <div class="row">
           <div class="label">Planned builds</div>
-          <div>Android APK, Linux AppImage or .deb, source release</div>
+          <div>Windows, Android APK, Linux AppImage or .deb, source release</div>
         </div>
         <div class="row">
           <div class="label">Release notes</div>
@@ -61,7 +80,27 @@
         </div>
       </div>
 
-      <div class="note">When builds land, each release will include a short changelog plus the checksums.</div>
+      <div class="note">Next drop will add checksums + quick install notes per platform.</div>
+    </div>
+
+    <div class="panel" aria-label="Linux install and run instructions">
+      <h2 style="margin:0 0 0.5rem;">Linux: run it</h2>
+      <p class="lede" style="margin:0; max-width: 80ch;">
+        Download the <code>.tar.gz</code>, extract it, then run the executable inside the extracted folder.
+      </p>
+      <pre><code>cd ~/Downloads
+tar -xzf chicken-press-linux-x64.tar.gz
+ls
+
+# cd into the extracted folder (name may vary)
+cd chicken-press-linux-x64*
+
+# run the app (pick the executable you see in this folder)
+ls
+./chicken-press</code></pre>
+      <p class="note">
+        If Linux blocks it as “not executable”, run <code>chmod +x ./chicken-press</code> and try again.
+      </p>
     </div>
   </main>
 
