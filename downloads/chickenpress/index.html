@@ -41,6 +41,21 @@
       box-shadow: 0 18px 44px rgba(0,0,0,0.18);
     }
     .download-cta .hint { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 0; }
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.85rem;
+      margin-top: 0.75rem;
+    }
+    .download-card {
+      border: 1px solid var(--border);
+      background: rgba(24,24,32,0.78);
+      border-radius: 18px;
+      padding: 0.9rem;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.16);
+    }
+    .download-card .meta { color: var(--muted); font-size: 0.95rem; margin-top: 0.45rem; }
+    .download-card .button { width: 100%; }
     @media (max-width: 640px) {
       .row { grid-template-columns: 1fr; }
     }
@@ -64,19 +79,27 @@
 
   <main class="wrap">
     <h1>ChickenPress Downloads</h1>
-    <p class="lede">Release shelf for ChickenPress builds. Linux is live first; Windows is next.</p>
+    <p class="lede">Chicken Press Alpha 0.1.0 — first public desktop alpha release.</p>
 
     <div class="panel">
       <div class="kv">
         <div class="row">
           <div class="label">Status</div>
-          <div>Linux x64 alpha available</div>
+          <div>Windows + Linux builds available</div>
         </div>
         <div class="row">
           <div class="label">Latest</div>
           <div>
-            <div><strong>v0.1.0 (Linux x64 alpha)</strong></div>
-            <div><a href="https://github.com/sixesandsevens/chicken_press/releases/download/v0.1.0-linux-alpha/chicken-press-linux-x64.tar.gz">Download: chicken-press-linux-x64.tar.gz</a></div>
+            <div><strong>Chicken Press Alpha 0.1.0</strong></div>
+            <div class="note" style="margin-top:0.35rem;">
+              <a href="#downloads">Jump to downloads</a>
+              <span> • </span>
+              <a href="#notes">Notes</a>
+              <span> • </span>
+              <a href="#windows">Windows</a>
+              <span> • </span>
+              <a href="#linux">Linux</a>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -89,22 +112,74 @@
         </div>
       </div>
 
-      <div class="note">Next drop will add checksums + quick install notes per platform.</div>
+      <div class="note">This release includes SHA256 checksums for each downloadable file.</div>
     </div>
 
-    <div class="panel" id="linux" aria-label="Linux install and run instructions">
+    <div class="panel" id="downloads" aria-label="Downloads">
+      <h2 style="margin:0 0 0.5rem;">Downloads</h2>
+      <div class="download-grid" role="list">
+        <div class="download-card" id="windows" role="listitem" aria-label="Windows downloads">
+          <h3 style="margin:0;">Windows</h3>
+          <div class="meta">Installer recommended for most Windows users.</div>
+          <div style="margin-top:0.65rem; display:grid; gap:0.6rem;">
+            <a class="button primary" href="https://github.com/sixesandsevens/chicken_press/releases/download/v0.1.0-desktop-alpha/chicken-press-windows-x64-setup.exe">
+              <code>chicken-press-windows-x64-setup.exe</code>
+            </a>
+            <a class="button" href="https://github.com/sixesandsevens/chicken_press/releases/download/v0.1.0-desktop-alpha/chicken-press-windows-x64.zip">
+              <code>chicken-press-windows-x64.zip</code> (portable)
+            </a>
+          </div>
+          <pre><code>SHA256 (setup.exe):
+c0884d3b85c24f8b1841e3f6b2ade2e55bcfcc58e7416dbb2bfa54e953437255
+
+SHA256 (portable .zip):
+9a5e737a97d01e5dd9667c68e78fc699f97c2080b4099a890687069ec199f4d6</code></pre>
+          <p class="note" style="margin-bottom:0;">Windows users may see a SmartScreen warning because the installer is not code-signed yet.</p>
+        </div>
+
+        <div class="download-card" id="linux" role="listitem" aria-label="Linux downloads">
+          <h3 style="margin:0;">Linux</h3>
+          <div class="meta">Portable Linux build.</div>
+          <div style="margin-top:0.65rem;">
+            <a class="button primary" href="https://github.com/sixesandsevens/chicken_press/releases/download/v0.1.0-desktop-alpha/chicken-press-linux-x64.tar.gz">
+              <code>chicken-press-linux-x64.tar.gz</code>
+            </a>
+          </div>
+          <pre><code>SHA256:
+78107b297f38758713cc1dcd887c41d0f0d5de71c9e1276dbfcded50b50fd968</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="notes" aria-label="Release notes">
+      <h2 style="margin:0 0 0.5rem;">Notes</h2>
+      <p class="lede" style="margin:0; max-width: 80ch;">
+        This is an early alpha build of Chicken Press. It can format images/PDFs into printable zine layouts and export print-ready files.
+      </p>
+      <p class="note">Windows users may see a SmartScreen warning because the installer is not code-signed yet.</p>
+    </div>
+
+    <div class="panel" aria-label="Windows run instructions">
+      <h2 style="margin:0 0 0.5rem;">Windows:</h2>
+      <p class="lede" style="margin:0; max-width: 80ch;">
+        Use the installer (recommended) or the portable zip.
+      </p>
+      <pre><code># Installer (recommended)
+1) Download chicken-press-windows-x64-setup.exe
+2) Run it and follow the prompts
+3) Launch Chicken Press from the Start Menu
+
+# Portable
+1) Download chicken-press-windows-x64.zip
+2) Extract it
+3) Run the Chicken Press .exe inside the extracted folder</code></pre>
+    </div>
+
+    <div class="panel" aria-label="Linux run instructions">
       <h2 style="margin:0 0 0.5rem;">Linux:</h2>
       <p class="lede" style="margin:0; max-width: 80ch;">
         Download the <code>.tar.gz</code>, extract it, then run the executable inside the extracted folder.
       </p>
-      <p class="note" style="margin-top:0.6rem;">
-        This is an early alpha build — expect some rough edges, but the core export workflow is usable.
-      </p>
-      <div class="download-cta" role="group" aria-label="Linux download">
-        <a class="button primary" href="https://github.com/sixesandsevens/chicken_press/releases/download/v0.1.0-linux-alpha/chicken-press-linux-x64.tar.gz">
-          <code>chicken-press-linux-x64.tar.gz</code>
-        </a>
-      </div>
       <pre><code>cd ~/Downloads
 tar -xzf chicken-press-linux-x64.tar.gz
 ls
