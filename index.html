@@ -434,9 +434,10 @@
     .footer-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
+      text-align: center;
     }
 
     @media (max-width: 900px) {
@@ -550,7 +551,6 @@ Make it useful anyway.</pre>
     <section class="wrap" id="featured">
       <div class="section-head">
         <h2>Featured work</h2>
-        <p>The current front-door: a few things that represent what I’m building right now.</p>
       </div>
 
       <div class="grid">
@@ -677,7 +677,6 @@ Make it useful anyway.</pre>
     <section class="wrap" id="make">
       <div class="section-head">
         <h2>What I make</h2>
-        <p>A handful of buckets. The inventory lives on the projects page.</p>
       </div>
 
       <div class="grid">
@@ -754,7 +753,6 @@ Make it useful anyway.</pre>
     <section class="wrap" id="available">
       <div class="section-head">
         <h2>Live / Released</h2>
-        <p>What you can click today. The rest is on the bench.</p>
       </div>
 
       <div class="downloads">
@@ -832,13 +830,8 @@ Make it useful anyway.</pre>
 
   <footer>
     <div class="wrap footer-inner">
-      <span>© <span id="year"></span> Sixes &amp; Sevens Studio</span>
-      <span>Built for projects that refuse to stay in their boxes.</span>
+      <span>© 2026 Sixes &amp; Sevens Studio</span>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
