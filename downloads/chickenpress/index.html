@@ -159,6 +159,17 @@
 
     <div class="panel" aria-label="Linux run instructions">
       <h2 style="margin:0 0 0.5rem;">Linux:</h2>
+      <h3>Requirements</h3>
+      <ul class="lede">
+        <li>64-bit x86 Linux (<code>x86_64</code> or AMD64). ARM devices are not supported by this build.</li>
+        <li><code>glibc 2.34</code> or newer and the GTK 3 runtime.</li>
+        <li>An X11 or Wayland desktop session.</li>
+      </ul>
+      <p class="note">
+        Most current desktop Linux distributions already include these requirements. Flutter, Dart, Java, Python, and separate PDF software are not required.
+      </p>
+
+      <h3>Run Chicken Press</h3>
       <p class="lede" style="margin:0; max-width: 80ch;">
         Download the <code>.tar.gz</code>, extract it, then run the executable inside the <code>bundle</code> folder.
       </p>
@@ -167,8 +178,14 @@ tar -xzf chicken-press-linux-x64.tar.gz
 cd bundle
 ./chicken_press</code></pre>
       <p class="note">
-        Keep the executable beside the included <code>lib</code> and <code>data</code> folders. If Linux blocks it as “not executable”, run <code>chmod +x ./chicken_press</code> and try again.
+        Some graphical archive tools may create an outer <code>chicken-press-linux-x64</code> folder. In that case, open it and then open <code>bundle</code>. Keep the entire <code>bundle</code> folder together.
       </p>
+
+      <h3>Troubleshooting</h3>
+      <p class="lede" style="max-width: 80ch;">
+        If Linux blocks the app as “not executable”, run <code>chmod +x ./chicken_press</code> from inside the <code>bundle</code> folder. Debian- and Ubuntu-based systems missing GTK can install the common runtime packages with:
+      </p>
+      <pre><code>sudo apt install libgtk-3-0 libepoxy0</code></pre>
     </div>
   </main>
 
