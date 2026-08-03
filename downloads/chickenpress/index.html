@@ -160,20 +160,14 @@
     <div class="panel" aria-label="Linux run instructions">
       <h2 style="margin:0 0 0.5rem;">Linux:</h2>
       <p class="lede" style="margin:0; max-width: 80ch;">
-        Download the <code>.tar.gz</code>, extract it, then run the executable inside the extracted folder.
+        Download the <code>.tar.gz</code>, extract it, then run the executable inside the <code>bundle</code> folder.
       </p>
       <pre><code>cd ~/Downloads
 tar -xzf chicken-press-linux-x64.tar.gz
-ls
-
-# cd into the extracted folder (name may vary)
-cd chicken-press-linux-x64*
-
-# run the app (pick the executable you see in this folder)
-ls
-./chicken-press</code></pre>
+cd bundle
+./chicken_press</code></pre>
       <p class="note">
-        If Linux blocks it as “not executable”, run <code>chmod +x ./chicken-press</code> and try again.
+        Keep the executable beside the included <code>lib</code> and <code>data</code> folders. If Linux blocks it as “not executable”, run <code>chmod +x ./chicken_press</code> and try again.
       </p>
     </div>
   </main>
